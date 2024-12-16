@@ -7,7 +7,6 @@
 #include "Game_6.h"
 #include "Game_7.h"
 #include "Game_8.h"
-#include "AI_Game_1.h"
 
 // Esraa Hussein Mohamed          id : 20230052
 // Samaa Alaa Abdelmaksod         id : 20231077
@@ -36,7 +35,7 @@ int main() {
         }
         int mode = 0;
         while (mode < 1 || mode > 2) {
-            cout << "1) Two players\n2) Random Computer\n 3) AI Player \n Enter your choice : ";
+            cout << "1) Two players\n2) Random Computer \n Enter your choice : ";
             cin >> mode;
         }
         Player<char> *players[8][2] = {nullptr};
@@ -115,32 +114,6 @@ int main() {
                     players[7][1] = new UltimateTicTacToe_Random_Player<char>('Z');
                     break;
             }
-        } else if (mode == 3) {
-            switch (variation) {
-                case 1:
-                   players[0][1] = new AI_Player_1<char>('O');
-                    break;
-
-                case 2:
-                  // players[1][1] = new AI_Player_2<char>('O');
-                    break;
-
-                case 3:
-                   // players[2][1] = new AI_Player_3<char>('O');
-                    break;
-
-                case 4:
-                    //players[3][1] = new AI_Player_4 <char> ('O');
-                    break;
-
-                case 5:
-                   // players[4][1] = new AI_Player_5<char>('O');
-                    break;
-
-                case 6:
-                   // players[5][1] = new AI_Player_6<char>('O');
-                    break;
-            }
         }
 
         switch (variation) {
@@ -196,9 +169,7 @@ int main() {
                 cout << "Selected variation is not yet implemented." << endl;
                 return 0;
         }
-
-
-
+        
         // Run the selected game
         if (game[variation - 1] != nullptr) {
             game[variation - 1]->run();
@@ -214,5 +185,4 @@ int main() {
 
         cout << "Thank you for playing!" << endl;
     }
-    return 0;
 }
